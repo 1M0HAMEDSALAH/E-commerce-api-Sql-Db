@@ -2,7 +2,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Resister = sequelize.define('resister', {
+  const User = sequelize.define('user', {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
@@ -31,9 +31,9 @@ module.exports = (sequelize) => {
     },
     reset_code: DataTypes.STRING,
   }, {
-    tableName: 'resister',
+    tableName: 'users',
     timestamps: false,
   });
 
-  return Resister;
+  return User;
 };

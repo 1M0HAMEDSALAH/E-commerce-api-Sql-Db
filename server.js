@@ -5,14 +5,21 @@ const app = express();
 const bodyParser = require("body-parser");
 const userRoute = require("./routers/userRoute");
 const reportRoutes = require("./routers/reportRouter");
+const DbContext = require("./config/dbConnection");
+const productsRoute = require('./routers/productsRoute');
+const swaggerUi = require("swagger-ui-express");
+const swaggerSpecs = require("./swagger");
+const orderRoutes = require("./routers/orderRoutes");
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Swagger UI route
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpecs));
 
-//handel error
+// handle error
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({
@@ -23,14 +30,16 @@ app.use((err, req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-    res.json({
-        message: "Welcome to the API",
-    });
+    res.json({ message: "Welcome to the API" });
 });
 
 app.use("/api/user", userRoute);
 
 app.use("/api/reports", reportRoutes);
+
+app.use('/api/products', productsRoute);
+
+app.use("/api/orders", orderRoutes);
 
 
 app.listen(process.env.PORT, () => {
