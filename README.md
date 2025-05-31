@@ -1,4 +1,4 @@
-# 📱 E-Commerce Api with Node.js Backend
+#  E-Commerce Api with Node.js Backend
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/e99a066c-531b-4da9-b5f5-6d1c07c0bb57" width="30%" />
