@@ -11,7 +11,7 @@
 |------------|---------|
 | Node.js | Runtime environment |
 | Express | Web framework |
-| MongoDB | Database |
+| Sql | Database |
 | Mongoose | ODM |
 | JWT | Authentication |
 | Bcrypt | Password hashing |
